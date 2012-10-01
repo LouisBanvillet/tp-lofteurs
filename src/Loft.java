@@ -56,6 +56,31 @@ public class Loft {
 					listeAliment.remove(incrementAliment);
 				}
 			}
+			
+			majTableau();
+			affichePlateau();
+		}
+	}
+	
+	public void affichePlateau(){
+		for(int i=0; i<h; i++) {
+	        for(int j=0; j<w; j++) {
+	        	if(loftTable[i][j]==null){System.out.print("-");}
+	        	if(loftTable[i][j] instanceof Neuneu){System.out.print("x");}
+	        	if(loftTable[i][j] instanceof Aliment){System.out.print("a");}
+	        }
+	        System.out.print("\n");
+		}
+	}
+	
+	public void majTableau(){
+		loftTable = new ObjetLoft[w][h];
+		for(Neuneu n:population) {
+	        loftTable[n.getPosition_x()][n.getPosition_y()]=n;
+		}
+
+		for(Aliment a:listeAliment) {
+	        loftTable[a.getPosition_x()][a.getPosition_y()]=a;
 		}
 	}
 	

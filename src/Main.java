@@ -6,7 +6,8 @@ public class Main {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		Loft l = new Loft();
+		l.go();
 	}
 
 }
