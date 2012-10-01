@@ -14,6 +14,7 @@ public class Loft {
 	public Loft(int width, int height){
 		w=width;
 		h=height;
+		int numeroNeuneu=1;
 		for(int i=0; i<w; i++) {
 	        for(int j=0; j<h; j++) {
 	        	//random<3 : case vide; 3<=random<5 : aliment; 5<=random<6 : lofteur
@@ -22,14 +23,26 @@ public class Loft {
 	        		loftTable[i][j] = AlimentFactory.createAliment();
 	        	}
 	        	if(random>=5 && random<6){
-	        		loftTable[i][j] = NeuneuFactory.createNeuneu();
+	        		loftTable[i][j] = NeuneuFactory.createNeuneu("Neuneu" + numeroNeuneu);
 	        		population.add((Neuneu) loftTable[i][j]);
+	        		numeroNeuneu++;
 	        	}
 	        }
 		}
 	}
 	
 	public Neuneu getProcheNeuneu(Neuneu n){
+		Neuneu procheNeuneu = null;
+		
+		for(int i=0; i<population.size(); i++){
+			//si la distance est nulle, on ne considère pas ce Neuneu
+			if(n.getDistance(population.get(i))!=0){
+				if(procheNeuneu==null){procheNeuneu=population.get(i);}
+				else if(n.getDistance(population.get(i))<n.getDistance(procheNeuneu)){
+					procheNeuneu=population.get(i);
+				}
+			}
+		}
 		
 		return null;
 	}
