@@ -1,5 +1,5 @@
 
-public abstract class Neuneu extends ObjetLoft {
+public class Neuneu extends ObjetLoft {
 	protected Loft loft;
 	
 	public Loft getLoft() {
@@ -10,5 +10,29 @@ public abstract class Neuneu extends ObjetLoft {
 		this.loft = loft;
 	}
 
-	public abstract void seReproduire(Neuneu neuneu);
+	public Neuneu(String nom) {
+		this.setNom(nom);
+	}
+	
+	public void seReproduire(Neuneu neuneu) {
+		
+	}
+
+	@Override
+	public void manger(ObjetLoft o) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void seDeplacer() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void affiche() {
+		// TODO Auto-generated method stub
+		
+	}
 }

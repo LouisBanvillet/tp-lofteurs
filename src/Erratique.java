@@ -1,6 +1,11 @@
 
 public class Erratique extends Neuneu {
 
+	public Erratique(String nom) {
+		super(nom);
+		// TODO Auto-generated constructor stub
+	}
+
 	@Override
 	public void seReproduire(Neuneu neuneu) {
 		// TODO Auto-generated method stub

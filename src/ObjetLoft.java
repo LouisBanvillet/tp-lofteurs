@@ -7,8 +7,12 @@ public abstract class ObjetLoft {
 	
 	protected int energie;
 	protected int case_deplacement;
-
 	
+	public int getDistance(ObjetLoft o){
+		int distance = Math.abs(this.position_x-o.position_x) + Math.abs(this.position_y - o.position_y);
+		return distance;
+	}
+
 	public int getPosition_x() {
 		return position_x;
 	}
