@@ -9,6 +9,7 @@ public class Vorace extends Erratique {
 	@Override
 	public void seDeplacer() {
 		//On prend l'alliment le plus proche
+		System.out.println("bla");
 		this.seDeplacer(this.getLoft().getProcheAliment(this));
 	}
 }

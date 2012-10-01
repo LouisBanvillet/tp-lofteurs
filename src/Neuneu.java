@@ -51,7 +51,7 @@ public class Neuneu extends ObjetLoft {
 	//On se déplace suivant un objet du loft
 	public void seDeplacer(ObjetLoft a) {
 		if(a == null) {
-			this.seDeplacer();
+			//this.seDeplacer(); à modifier
 		} else {
 			if(Math.abs(this.getPosition_x() - a.getPosition_x()) < Math.abs(this.getPosition_y() - this.getPosition_y())) {
 				if(this.getPosition_x() > a.getPosition_x()) {

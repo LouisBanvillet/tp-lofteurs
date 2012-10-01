@@ -40,7 +40,7 @@ public class Loft {
 	//méthode régissant la partie
 	public void go(){
 		int tour=1;
-		while(population.size()>0){
+		while(population.size()>0 && tour<100){
 			System.out.println("tour " + tour);
 			for(Neuneu n : population){
 				n.seDeplacer();
@@ -62,6 +62,7 @@ public class Loft {
 			
 			majTableau();
 			affichePlateau();
+			tour++;
 		}
 	}
 	

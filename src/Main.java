@@ -10,6 +10,7 @@ public class Main {
 		AlimentFactory.init();
 		
 		Loft l = new Loft();
+		l.affichePlateau();
 		l.go();
 	}
 
