@@ -33,19 +33,57 @@ public class Neuneu extends ObjetLoft {
 		int choix = (int)(Math.random() * 4);
 		switch(choix) {
 			case 0:
-				this.setPosition_x(Math.max(0, this.getPosition_y() - this.getCase_deplacement()));
+				this.seDeplacerHaut();
 				break;
 			case 1:
-				this.setPosition_y(Math.min(loft.w - 1, this.getPosition_y() + this.getCase_deplacement()));
+				this.seDeplacerDroite();
 				break;
 			case 2:
-				this.setPosition_y(Math.min(loft.h - 1, this.getPosition_y() + this.getCase_deplacement()));
+				this.seDeplacerBas();
 				break;
 			case 3: 
-				this.setPosition_x(Math.max(0, this.getPosition_x() - this.getCase_deplacement()));
+				this.seDeplacerGauche();
 				break;
 		}
 		this.setEnergie(this.getEnergie() - 10);
+	}
+	
+	//On se déplace suivant un objet du loft
+	public void seDeplacer(ObjetLoft a) {
+		if(a == null) {
+			this.seDeplacer();
+		} else {
+			if(Math.abs(this.getPosition_x() - a.getPosition_x()) < Math.abs(this.getPosition_y() - this.getPosition_y())) {
+				if(this.getPosition_x() > a.getPosition_x()) {
+					this.seDeplacerGauche();
+				} else {
+					this.seDeplacerDroite();
+				}
+			} else {
+				if(this.getPosition_y() > a.getPosition_y()) {
+					this.seDeplacerHaut();
+				} else {
+					this.seDeplacerBas();
+				}
+			}
+		}
+		
+		this.setEnergie(this.getEnergie() - 10);
+	}	
+	public void seDeplacerHaut() {
+		this.setPosition_x(Math.max(0, this.getPosition_y() - this.getCase_deplacement()));
+	}
+	
+	public void seDeplacerDroite() {
+		this.setPosition_y(Math.min(loft.w - 1, this.getPosition_y() + this.getCase_deplacement()));
+	}
+	
+	public void seDeplacerBas() {
+		this.setPosition_y(Math.min(loft.h - 1, this.getPosition_y() + this.getCase_deplacement()));
+	}
+	
+	public void seDeplacerGauche() {
+		this.setPosition_x(Math.max(0, this.getPosition_x() - this.getCase_deplacement()));
 	}
 
 	@Override

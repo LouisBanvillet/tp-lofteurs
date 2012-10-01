@@ -5,5 +5,10 @@ public class Cannibale extends Vorace {
 		super(nom, energie, caseDeplacement, loft);
 		// TODO Auto-generated constructor stub
 	}
-
+	
+	@Override
+	public void seDeplacer() {
+		//On prend l'objet le plus proche
+		this.seDeplacer(this.getLoft().getProcheObjet(this));
+	}
 }

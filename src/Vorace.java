@@ -8,7 +8,7 @@ public class Vorace extends Erratique {
 	
 	@Override
 	public void seDeplacer() {
-		Aliment a = this.getLoft().getProcheAliment(this);
-		this.setEnergie(this.getEnergie() - 10);
+		//On prend l'alliment le plus proche
+		this.seDeplacer(this.getLoft().getProcheAliment(this));
 	}
 }
