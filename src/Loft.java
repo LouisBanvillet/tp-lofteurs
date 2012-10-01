@@ -38,7 +38,9 @@ public class Loft {
 	
 	//méthode régissant la partie
 	public void go(){
+		int tour=1;
 		while(population.size()>0){
+			System.out.println("tour " + tour);
 			for(Neuneu n : population){
 				n.seDeplacer();
 			}
