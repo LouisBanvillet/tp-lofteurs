@@ -1,4 +1,4 @@
 
-public class Aliment implements ObjetLoft {
-
+public abstract class Aliment extends ObjetLoft {
+	
 }
