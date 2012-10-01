@@ -34,17 +34,17 @@ public class InfoObjetLoft {
 	 * Retourne un Erratique de base
 	 * @return
 	 */
-	public Neuneu getInstanceNeuneu(String name) {
+	public Neuneu getInstanceNeuneu(String name, Loft loft) {
 		if(this.getClassNom().equals(Lapin.class.getName())) {
-			return new Lapin(name);
+			return new Lapin(name, this.energie, this.caseDeplacement, loft);
 		} else if(this.getClassNom().equals(Cannibale.class.getName())) {
-			return new Cannibale(name);
+			return new Cannibale(name, this.energie, this.caseDeplacement, loft);
 		} else if(this.getClassNom().equals(Vorace.class.getName())) {
-			return new Vorace(name);
+			return new Vorace(name, this.energie, this.caseDeplacement, loft);
 		} else if(this.getClassNom().equals(Erratique.class.getName())) {
-			return new Erratique(name);
+			return new Erratique(name, this.energie, this.caseDeplacement, loft);
 		} else {
-			return new Neuneu(name);
+			return new Neuneu(name, this.energie, this.caseDeplacement, loft);
 		}
 	}
 	

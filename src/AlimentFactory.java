@@ -11,7 +11,7 @@ public class AlimentFactory {
 	}
 	
 	public static Aliment createAliment(String name){
-		int choix = (int)Math.random() * infos.length;
+		int choix = (int)(Math.random() * infos.length);
 		
 		return infos[choix].getInstanceAliment(name);
 	}
