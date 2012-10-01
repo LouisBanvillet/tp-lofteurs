@@ -6,6 +6,9 @@ public class Main {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		NeuneuFactory.init();
+		AlimentFactory.init();
+		
 		Loft l = new Loft();
 		l.go();
 	}

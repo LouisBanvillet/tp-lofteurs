@@ -3,7 +3,7 @@ public class AlimentFactory {
 	public static InfoObjetLoft[] infos;
 	
 	public static void init() {
-		infos = new InfoObjetLoft[4];
+		infos = new InfoObjetLoft[3];
 
 		infos[0] = new InfoObjetLoft(Nourriture.class.getName(), 50, 0);
 		infos[1] = new InfoObjetLoft(Boisson.class.getName(), 30, 0);
@@ -12,7 +12,7 @@ public class AlimentFactory {
 	
 	public static Aliment createAliment(String name){
 		int choix = (int)(Math.random() * infos.length);
-		
+		System.out.println(choix);
 		return infos[choix].getInstanceAliment(name);
 	}
 }

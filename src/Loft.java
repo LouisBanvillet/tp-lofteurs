@@ -4,7 +4,7 @@ import java.util.ArrayList;
 public class Loft {
 	
 	protected int w, h;
-	protected ObjetLoft loftTable[][] = new ObjetLoft[w][h];
+	protected ObjetLoft loftTable[][];
 	protected ArrayList<Neuneu> population = new ArrayList<Neuneu>();
 	protected ArrayList<Aliment> listeAliment = new ArrayList<Aliment>();
 	
@@ -15,6 +15,7 @@ public class Loft {
 	public Loft(int width, int height){
 		w=width;
 		h=height;
+		loftTable = new ObjetLoft[w][h];
 		int numeroNeuneu=1;
 		int numeroAliment=1;
 		for(int i=0; i<w; i++) {
