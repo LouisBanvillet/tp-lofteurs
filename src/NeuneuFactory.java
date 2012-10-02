@@ -11,9 +11,13 @@ public class NeuneuFactory {
 		infos[3] = new InfoObjetLoft(Cannibale.class.getName(), 100, 1);
 	}
 	
-	public static Neuneu createNeuneu(String name, Loft loft) {
+	public static Neuneu createNeuneu(String name, int x, int y, Loft loft) {
 		int choix = (int)(Math.random() * infos.length);
 		
-		return infos[choix].getInstanceNeuneu(name, loft);
+		Neuneu n = infos[choix].getInstanceNeuneu(name, loft);
+		n.setPosition_x(x);
+		n.setPosition_y(y);
+		
+		return n;
 	}
 }

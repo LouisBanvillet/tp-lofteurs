@@ -26,32 +26,33 @@ public class Neuneu extends ObjetLoft {
 		int e = this.getEnergie() + o.getEnergie();
 		this.setEnergie(Math.min(e, 100));
 		o.setEnergie(Math.max(0, e - this.getEnergie()));
+		
+		System.out.println(this.getNom() + " mange " + o.getNom());
 	}
 
 	@Override
 	public void seDeplacer() {
-		int choix = (int)(Math.random() * 4);
-		switch(choix) {
-			case 0:
-				this.seDeplacerHaut();
-				break;
-			case 1:
-				this.seDeplacerDroite();
-				break;
-			case 2:
-				this.seDeplacerBas();
-				break;
-			case 3: 
-				this.seDeplacerGauche();
-				break;
-		}
-		this.setEnergie(this.getEnergie() - 10);
+		this.seDeplacer(null);
 	}
-	
+		
 	//On se déplace suivant un objet du loft
 	public void seDeplacer(ObjetLoft a) {
 		if(a == null) {
-			//this.seDeplacer(); à modifier
+			int choix = (int)(Math.random() * 4);
+			switch(choix) {
+				case 0:
+					this.seDeplacerHaut();
+					break;
+				case 1:
+					this.seDeplacerDroite();
+					break;
+				case 2:
+					this.seDeplacerBas();
+					break;
+				case 3: 
+					this.seDeplacerGauche();
+					break;
+			}
 		} else {
 			if(Math.abs(this.getPosition_x() - a.getPosition_x()) < Math.abs(this.getPosition_y() - this.getPosition_y())) {
 				if(this.getPosition_x() > a.getPosition_x()) {
@@ -71,24 +72,28 @@ public class Neuneu extends ObjetLoft {
 		this.setEnergie(this.getEnergie() - 10);
 	}	
 	public void seDeplacerHaut() {
+		System.out.println(this.getNom() + " se déplace en haut");
 		this.setPosition_x(Math.max(0, this.getPosition_y() - this.getCase_deplacement()));
 	}
 	
 	public void seDeplacerDroite() {
+		System.out.println(this.getNom() + " se déplace à droite");
 		this.setPosition_y(Math.min(loft.w - 1, this.getPosition_y() + this.getCase_deplacement()));
 	}
 	
 	public void seDeplacerBas() {
+		System.out.println(this.getNom() + " se déplace en bas");
 		this.setPosition_y(Math.min(loft.h - 1, this.getPosition_y() + this.getCase_deplacement()));
 	}
 	
 	public void seDeplacerGauche() {
+		System.out.println(this.getNom() + " se déplace à gauche");
 		this.setPosition_x(Math.max(0, this.getPosition_x() - this.getCase_deplacement()));
 	}
 
 	@Override
 	public void affiche() {
-		System.out.println(this.getNom() + "() [" + this.getPosition_x() + ", " + this.getPosition_y() + "]");
+		System.out.println(this.getNom() + " [" + this.getPosition_x() + ", " + this.getPosition_y() + "]");
 	}
 	
 	public void action() {

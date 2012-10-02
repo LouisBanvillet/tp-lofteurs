@@ -10,8 +10,13 @@ public class AlimentFactory {
 		infos[2] = new InfoObjetLoft(Alcool.class.getName(), -5, 1);
 	}
 	
-	public static Aliment createAliment(String name){
+	public static Aliment createAliment(String name, int x, int y){
 		int choix = (int)(Math.random() * infos.length);
-		return infos[choix].getInstanceAliment(name);
+
+		Aliment a = infos[choix].getInstanceAliment(name);
+		a.setPosition_x(x);
+		a.setPosition_y(y);
+		
+		return a;
 	}
 }

@@ -13,22 +13,23 @@ public class Loft {
 	}
 	
 	public Loft(int width, int height){
-		w=width;
-		h=height;
+		this.w = width;
+		this.h = height;
 		loftTable = new ObjetLoft[w][h];
-		int numeroNeuneu=1;
-		int numeroAliment=1;
-		for(int i=0; i<h; i++) {
-	        for(int j=0; j<w; j++) {
+
+		int numeroNeuneu = 1;
+		int numeroAliment = 1;
+		for(int i = 0; i < w; i++) {
+	        for(int j = 0; j < h; j++) {
 	        	//random<3 : case vide; 3<=random<5 : aliment; 5<=random<6 : lofteur
-	        	int random = (int)(Math.random() * (6));
-	        	if(random>=3 && random<5){
-	        		loftTable[i][j] = AlimentFactory.createAliment("Aliment" + numeroAliment);
+	        	int random = (int)(Math.random() * (20));
+	        	if(random >= 3 && random < 5){
+	        		loftTable[i][j] = AlimentFactory.createAliment("Aliment" + numeroAliment, i, j);
 	        		listeAliment.add((Aliment) loftTable[i][j]);
 	        		numeroAliment++;
 	        	}
 	        	if(random>=5 && random<6){
-	        		loftTable[i][j] = NeuneuFactory.createNeuneu("Neuneu" + numeroNeuneu, this);
+	        		loftTable[i][j] = NeuneuFactory.createNeuneu("Neuneu" + numeroNeuneu, i, j, this);
 	        		population.add((Neuneu) loftTable[i][j]);
 	        		numeroNeuneu++;
 	        	}
@@ -39,9 +40,9 @@ public class Loft {
 	
 	//méthode régissant la partie
 	public void go(){
-		int tour=1;
-		while(population.size()>0 && tour<2){
-			System.out.println("tour " + tour);
+		int tour = 1;
+		while(tour < 100 && population.size() > 0){
+			System.out.println("[Tour: " + tour + "] [Neuneu: " + population.size() + "] [Aliment: " + listeAliment.size() + "]");
 			for(Neuneu n : population){
 				n.seDeplacer();
 				n.affiche();
@@ -55,7 +56,7 @@ public class Loft {
 				else{incrementNeuneu++;}
 			}
 			int incrementAliment=0;
-			while(incrementAliment<listeAliment.size()){
+			while(incrementAliment < listeAliment.size()){
 				if(listeAliment.get(incrementAliment).getEnergie()<=0){
 					listeAliment.remove(incrementAliment);
 				}
@@ -68,14 +69,20 @@ public class Loft {
 	}
 	
 	public void affichePlateau(){
-		for(int i=0; i<h; i++) {
-	        for(int j=0; j<w; j++) {
-	        	if(loftTable[i][j]==null){System.out.print("-");}
-	        	if(loftTable[i][j] instanceof Lapin){System.out.print("l");}
-	        	if(loftTable[i][j] instanceof Cannibale){System.out.print("c");}
-	        	if(loftTable[i][j] instanceof Vorace && !(loftTable[i][j] instanceof Cannibale)){System.out.print("v");}
-	        	if(loftTable[i][j] instanceof Erratique && !(loftTable[i][j] instanceof Vorace)){System.out.print("e");}
-	        	if(loftTable[i][j] instanceof Aliment){System.out.print("a");}
+		for(int j = 0; j < h; j++) {
+	        for(int i = 0; i < w; i++) {
+//	        	if(loftTable[i][j] == null) {
+//	        		System.out.println("[" + i + ", " + j + "] null");
+//	        	} else {
+//	        		loftTable[i][j].affiche();
+//	        	}
+	        	if(loftTable[i][j] == null){ System.out.print("-"); }
+	        	else if(loftTable[i][j] instanceof Lapin){ System.out.print("l"); }
+	        	else if(loftTable[i][j] instanceof Cannibale){ System.out.print("c"); }
+	        	else if(loftTable[i][j] instanceof Erratique){ System.out.print("e"); }
+	        	else if(loftTable[i][j] instanceof Neuneu){ System.out.print("x"); }
+	        	else if(loftTable[i][j] instanceof Aliment){ System.out.print("a"); }
+
 	        }
 	        System.out.print("\n");
 		}
@@ -83,11 +90,19 @@ public class Loft {
 	
 	public void majTableau(){
 		loftTable = new ObjetLoft[w][h];
+		for(int i = 0 ; i < w ; i++) {
+			for(int j = 0 ; j < h ; j++) {
+				loftTable[i][j]=null;
+			}
+		}
+		
 		for(Neuneu n:population) {
+			//System.out.println("[" + n.getPosition_x() + ", " + n.getPosition_y() + "] Neuneu");
 	        loftTable[n.getPosition_x()][n.getPosition_y()]=n;
 		}
 
 		for(Aliment a:listeAliment) {
+			//System.out.println("[" + a.getPosition_x() + ", " + a.getPosition_y() + "] Aliment");
 	        loftTable[a.getPosition_x()][a.getPosition_y()]=a;
 		}
 	}
