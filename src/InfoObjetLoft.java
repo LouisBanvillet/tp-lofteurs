@@ -4,25 +4,7 @@ public class InfoObjetLoft {
 	private int energie;
 	private int caseDeplacement;
 	
-	public String getClassNom() {
-		return classNom;
-	}
-	public void setClassNom(String className) {
-		this.classNom = className;
-	}
-	public int getEnergie() {
-		return energie;
-	}
-	public void setEnergie(int energie) {
-		this.energie = energie;
-	}
-	public int getCaseDeplacement() {
-		return caseDeplacement;
-	}
-	public void setCaseDeplacement(int caseDeplacement) {
-		this.caseDeplacement = caseDeplacement;
-	}
-	
+
 	public InfoObjetLoft(String nom, int energie, int caseDeplacement) {
 		this.setClassNom(nom);
 		this.setEnergie(energie);
@@ -59,4 +41,25 @@ public class InfoObjetLoft {
 			return new Aliment(name);
 		}
 	}
+	
+	
+	public String getClassNom() {
+		return classNom;
+	}
+	public void setClassNom(String className) {
+		this.classNom = className;
+	}
+	public int getEnergie() {
+		return energie;
+	}
+	public void setEnergie(int energie) {
+		this.energie = energie;
+	}
+	public int getCaseDeplacement() {
+		return caseDeplacement;
+	}
+	public void setCaseDeplacement(int caseDeplacement) {
+		this.caseDeplacement = caseDeplacement;
+	}
+	
 }

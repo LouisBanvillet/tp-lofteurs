@@ -18,8 +18,8 @@ public class Loft {
 		loftTable = new ObjetLoft[w][h];
 		int numeroNeuneu=1;
 		int numeroAliment=1;
-		for(int i=0; i<w; i++) {
-	        for(int j=0; j<h; j++) {
+		for(int i=0; i<h; i++) {
+	        for(int j=0; j<w; j++) {
 	        	//random<3 : case vide; 3<=random<5 : aliment; 5<=random<6 : lofteur
 	        	int random = (int)(Math.random() * (6));
 	        	if(random>=3 && random<5){
@@ -40,10 +40,11 @@ public class Loft {
 	//méthode régissant la partie
 	public void go(){
 		int tour=1;
-		while(population.size()>0 && tour<100){
+		while(population.size()>0 && tour<2){
 			System.out.println("tour " + tour);
 			for(Neuneu n : population){
 				n.seDeplacer();
+				n.affiche();
 			}
 			int incrementNeuneu=0;
 			while(incrementNeuneu<population.size()){
@@ -70,7 +71,10 @@ public class Loft {
 		for(int i=0; i<h; i++) {
 	        for(int j=0; j<w; j++) {
 	        	if(loftTable[i][j]==null){System.out.print("-");}
-	        	if(loftTable[i][j] instanceof Neuneu){System.out.print("x");}
+	        	if(loftTable[i][j] instanceof Lapin){System.out.print("l");}
+	        	if(loftTable[i][j] instanceof Cannibale){System.out.print("c");}
+	        	if(loftTable[i][j] instanceof Vorace && !(loftTable[i][j] instanceof Cannibale)){System.out.print("v");}
+	        	if(loftTable[i][j] instanceof Erratique && !(loftTable[i][j] instanceof Vorace)){System.out.print("e");}
 	        	if(loftTable[i][j] instanceof Aliment){System.out.print("a");}
 	        }
 	        System.out.print("\n");
