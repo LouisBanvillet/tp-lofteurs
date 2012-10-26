@@ -66,10 +66,25 @@ public class Neuneu extends ObjetLoft {
 					this.seDeplacerGauche();
 					break;
 			}
+			
+			this.setEnergie(this.getEnergie() - 5);
 		} else {
 			if(this.getPosition_x() != a.getPosition_x() || this.getPosition_y() != a.getPosition_y()){
 				
-				if(Math.abs(this.getPosition_y() - a.getPosition_y()) == 0 || Math.abs(this.getPosition_x() - a.getPosition_x()) < Math.abs(this.getPosition_y() - a.getPosition_y())) {
+				if(Math.abs(this.getPosition_y() - a.getPosition_y()) == 0) {
+					if(this.getPosition_x() > a.getPosition_x()) {
+						this.seDeplacerGauche();
+					} else {
+						this.seDeplacerDroite();
+					}
+				} else if(Math.abs(this.getPosition_x() - a.getPosition_x()) == 0) {
+					if(this.getPosition_y() > a.getPosition_y()) {
+						this.seDeplacerHaut();
+					} else {
+						this.seDeplacerBas();
+					}
+				}
+				else if (Math.abs(this.getPosition_x() - a.getPosition_x()) < Math.abs(this.getPosition_y() - a.getPosition_y())) {
 					if(this.getPosition_x() > a.getPosition_x()) {
 						this.seDeplacerGauche();
 					} else {
@@ -82,10 +97,10 @@ public class Neuneu extends ObjetLoft {
 						this.seDeplacerBas();
 					}
 				}
+				
+				this.setEnergie(this.getEnergie() - 5);
 			}
 		}
-		
-		this.setEnergie(this.getEnergie() - 10);
 	}	
 	public void seDeplacerHaut() {
 		this.setPosition_y(Math.max(0, this.getPosition_y() - this.getCase_deplacement()));
