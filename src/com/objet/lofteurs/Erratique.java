@@ -1,4 +1,6 @@
 package com.objet.lofteurs;
+import java.awt.Color;
+
 import com.loft.Loft;
 import com.objet.ObjetLoft;
 
@@ -8,6 +10,7 @@ public class Erratique extends Neuneu {
 
 	public Erratique(String nom, int energie, int caseDeplacement, Loft loft) {
 		super(nom, energie, caseDeplacement, loft);
+		color = Color.green;
 		// TODO Auto-generated constructor stub
 	}
 

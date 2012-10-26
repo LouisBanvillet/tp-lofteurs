@@ -6,6 +6,8 @@ import java.util.LinkedList;
 
 import javax.swing.JFrame;
 
+import com.main.Saison1;
+
 /**
  * une classe comportant une zone graphique dans laquelle on peut dessiner ;
  * le dessin est refait automatiquement par la classe Panel associée ; tous
@@ -33,7 +35,7 @@ public class ZoneGraphique extends JFrame {
 		super(titre);
 		
 		// ajout d'une taille par défaut
-		setSize(600,600);
+		setSize(Saison1.tailleFenetre, Saison1.tailleFenetre);
 		
 		// création de la liste d'objets
 		liste = new LinkedList<ObjetDessinable>();
@@ -55,7 +57,7 @@ public class ZoneGraphique extends JFrame {
 	/**
 	 * ajout d'un objet dans la zone graphique
 	 */
-	void ajouterObjet(ObjetDessinable o) {
+	public void ajouterObjet(ObjetDessinable o) {
 		liste.add(o);
 	}
 	

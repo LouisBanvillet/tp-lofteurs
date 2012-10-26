@@ -1,6 +1,10 @@
 package com.objet;
 
-public abstract class ObjetLoft {
+import java.awt.Color;
+
+import com.graphique.ObjetDessinable;
+
+public abstract class ObjetLoft implements ObjetDessinable{
 	protected int position_x;
 	protected int position_y;
 	
@@ -8,6 +12,7 @@ public abstract class ObjetLoft {
 	
 	protected int energie;
 	protected int case_deplacement;
+	protected Color color;
 	
 	public int getDistance(ObjetLoft o){
 		int distance = Math.abs(this.position_x-o.position_x) + Math.abs(this.position_y - o.position_y);

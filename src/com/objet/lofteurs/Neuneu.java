@@ -1,5 +1,8 @@
 package com.objet.lofteurs;
+import java.awt.Graphics;
+
 import com.loft.Loft;
+import com.main.Saison1;
 import com.objet.ObjetLoft;
 
 
@@ -100,4 +103,11 @@ public class Neuneu extends ObjetLoft {
 	public void action() {
 		
 	}
+
+	@Override
+	public void dessinerObjet(Graphics g) {
+		g.setColor(color);
+		g.fillOval(position_x*Saison1.tailleFenetre/Saison1.tailleLoft, position_y*Saison1.tailleFenetre/Saison1.tailleLoft, Saison1.tailleFenetre/(2*Saison1.tailleLoft), Saison1.tailleFenetre/(2*Saison1.tailleLoft));		
+	}
+	
 }

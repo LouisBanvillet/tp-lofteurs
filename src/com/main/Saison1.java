@@ -12,6 +12,7 @@ import com.objet.lofteurs.Vorace;
 public class Saison1 {
 
 	public static int nombreLofteurs = 4;
+	public static int tailleFenetre = 600;
 	public static int tailleLoft = 30;
 	public static float proportionErratique = .75f;
 	public static float proportionVorace = .25f;
@@ -20,49 +21,19 @@ public class Saison1 {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-//		NeuneuFactory.init();
-//		AlimentFactory.init();
-//		
-//		Loft l = new Loft();
-//		l.affichePlateau();
-//		l.go();
 		new Saison1().primeTime();
 	}
 	
 	public void primeTime() {
+		NeuneuFactory.init();
+		AlimentFactory.init();
+		
 		ZoneGraphique zone = new ZoneGraphique("Mon premier loft");
-//		Loft loft = new Loft(tailleLoft,zone);
-//		loft.remplissageAleatoire(0.1f);
-//		zone.ajouterObjet(loft);
-//		
-//		for (int i=0 ; i<nombreLofteurs ; i++) {
-//			double x = Math.random();
-//			if (x<proportionVorace) {
-//				loft.add(new Vorace(loft,
-//						(int)(Math.random()*29),
-//						(int)(Math.random()*29),
-//						3));
-//			}
-//			else {
-//				x -= proportionVorace;
-//				if (x<proportionErratique) {
-//					loft.add(new Erratique(loft,
-//							(int)(Math.random()*29),
-//							(int)(Math.random()*29)));
-//				}
-//				else {
-//					x -= proportionErratique;
-//					if (x<proportionCannibale) {
-//						loft.add(new Cannibale(loft,
-//						(int)(Math.random()*29),
-//						(int)(Math.random()*29),
-//						5));
-//					}
-//				}
-//			}
-//		}
-//		
-//		loft.go();
+		Loft loft = new Loft(tailleLoft,zone);
+		
+		zone.ajouterObjet(loft);
+		
+		loft.go();
 	}
 
 }
