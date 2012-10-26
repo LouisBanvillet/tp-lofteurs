@@ -30,38 +30,43 @@ public class Neuneu extends ObjetLoft {
 	}
 
 	@Override
+	public void manger() {
+		this.manger(null);
+	}
+	
 	public void manger(ObjetLoft o) {
-		int e = this.getEnergie() + o.getEnergie();
-		this.setEnergie(Math.min(e, 100));
-		o.setEnergie(Math.max(0, e - this.getEnergie()));
+		if(o != null) {
+			int e = this.getEnergie() + o.getEnergie();
+			this.setEnergie(Math.min(e, 100));
+			o.setEnergie(Math.max(0, e - this.getEnergie()));
+		}
 	}
 
 	@Override
 	public void seDeplacer() {
-		int choix = (int)(Math.random() * 4);
-		switch(choix) {
-			case 0:
-				this.seDeplacerHaut();
-				break;
-			case 1:
-				this.seDeplacerDroite();
-				break;
-			case 2:
-				this.seDeplacerBas();
-				break;
-			case 3: 
-				this.seDeplacerGauche();
-				break;
-		}
-		this.setEnergie(this.getEnergie() - 10);
+		this.seDeplacer(null);
 	}
 	
 	//On se déplace suivant un objet du loft
 	public void seDeplacer(ObjetLoft a) {
 		if(a == null) {
-			//this.seDeplacer(); à modifier
+			int choix = (int)(Math.random() * 4);
+			switch(choix) {
+				case 0:
+					this.seDeplacerHaut();
+					break;
+				case 1:
+					this.seDeplacerDroite();
+					break;
+				case 2:
+					this.seDeplacerBas();
+					break;
+				case 3: 
+					this.seDeplacerGauche();
+					break;
+			}
 		} else {
-			if(Math.abs(this.getPosition_x() - a.getPosition_x()) < Math.abs(this.getPosition_y() - this.getPosition_y())) {
+			if(Math.abs(this.getPosition_x() - a.getPosition_x()) < Math.abs(this.getPosition_y() - a.getPosition_y())) {
 				if(this.getPosition_x() > a.getPosition_x()) {
 					this.seDeplacerGauche();
 				} else {
@@ -79,11 +84,11 @@ public class Neuneu extends ObjetLoft {
 		this.setEnergie(this.getEnergie() - 10);
 	}	
 	public void seDeplacerHaut() {
-		this.setPosition_x(Math.max(0, this.getPosition_y() - this.getCase_deplacement()));
+		this.setPosition_y(Math.max(0, this.getPosition_y() - this.getCase_deplacement()));
 	}
 	
 	public void seDeplacerDroite() {
-		this.setPosition_y(Math.min(loft.getW() - 1, this.getPosition_y() + this.getCase_deplacement()));
+		this.setPosition_x(Math.min(loft.getW() - 1, this.getPosition_x() + this.getCase_deplacement()));
 	}
 	
 	public void seDeplacerBas() {

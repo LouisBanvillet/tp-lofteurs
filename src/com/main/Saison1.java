@@ -13,7 +13,7 @@ public class Saison1 {
 
 	public static int nombreLofteurs = 4;
 	public static int tailleFenetre = 600;
-	public static int tailleLoft = 30;
+	public static int tailleLoft = 10;
 	public static float proportionErratique = .75f;
 	public static float proportionVorace = .25f;
 	public static float proportionCannibale = 0f;
@@ -35,5 +35,4 @@ public class Saison1 {
 		
 		loft.go();
 	}
-
 }

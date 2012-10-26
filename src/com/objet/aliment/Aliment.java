@@ -8,13 +8,14 @@ import com.objet.ObjetLoft;
 
 public class Aliment extends ObjetLoft {
 
-	public Aliment(String name) {
+	public Aliment(String name, int energie) {
 		this.setNom(name);
+		this.setEnergie(energie);
 		color = Color.black;
 	}
 	
 	@Override
-	public void manger(ObjetLoft o) {
+	public void manger() {
 		// TODO Auto-generated method stub
 		
 	}
@@ -27,7 +28,7 @@ public class Aliment extends ObjetLoft {
 
 	@Override
 	public void affiche() {
-		System.out.println(this.getNom() + "() [" + this.getPosition_x() + ", " + this.getPosition_y() + "]");		
+		System.out.println(this.getNom() + "() [" + this.getPosition_x() + ", " + this.getPosition_y() + "][" + this.getEnergie() + "]");		
 	}
 
 	@Override

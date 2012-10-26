@@ -45,13 +45,13 @@ public class InfoObjetLoft {
 	
 	public Aliment getInstanceAliment(String name) {
 		if(this.getClassNom().equals(Boisson.class.getName())) {
-			return new Boisson(name);
+			return new Boisson(name, this.energie);
 		} else if(this.getClassNom().equals(Alcool.class.getName())) {
-			return new Alcool(name);
+			return new Alcool(name, this.energie);
 		} else if(this.getClassNom().equals(Nourriture.class.getName())) {
-			return new Nourriture(name);
+			return new Nourriture(name, this.energie);
 		} else {
-			return new Aliment(name);
+			return new Aliment(name, this.energie);
 		}
 	}
 	

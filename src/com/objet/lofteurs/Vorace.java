@@ -17,4 +17,9 @@ public class Vorace extends Erratique {
 		//On prend l'alliment le plus proche
 		this.seDeplacer(this.getLoft().getProcheAliment(this));
 	}
+	
+	@Override
+	public void manger() {
+		this.manger(this.getLoft().getAlimentCase(this.getPosition_x(), this.getPosition_y()));
+	}
 }

@@ -2,6 +2,7 @@ package com.objet.lofteurs;
 import java.awt.Color;
 
 import com.loft.Loft;
+import com.objet.aliment.Aliment;
 
 
 public class Cannibale extends Vorace {
@@ -16,5 +17,14 @@ public class Cannibale extends Vorace {
 	public void seDeplacer() {
 		//On prend l'objet le plus proche
 		this.seDeplacer(this.getLoft().getProcheObjet(this));
+	}
+	
+	@Override
+	public void manger() {
+		Aliment a = this.getLoft().getAlimentCase(this.getPosition_x(), this.getPosition_y());
+		if(a == null)
+			this.manger(this.getLoft().getNeuneuCase(this.getPosition_x(), this.getPosition_y()));
+		else
+			this.manger(a);
 	}
 }

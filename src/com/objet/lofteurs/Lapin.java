@@ -18,4 +18,9 @@ public class Lapin extends Neuneu {
 		//On prend l'alliment le plus proche
 		this.seDeplacer(this.getLoft().getProcheNeuneu(this));	
 	}
+	
+	@Override
+	public void manger() {
+		this.manger(this.getLoft().getAlimentCase(this.getPosition_x(), this.getPosition_y()));
+	}
 }

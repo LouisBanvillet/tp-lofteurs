@@ -14,8 +14,10 @@ public abstract class ObjetLoft implements ObjetDessinable{
 	protected int case_deplacement;
 	protected Color color;
 	
-	public int getDistance(ObjetLoft o){
-		int distance = Math.abs(this.position_x-o.position_x) + Math.abs(this.position_y - o.position_y);
+	public double getDistance(ObjetLoft o){
+		double distance = Math.sqrt(
+				(this.getPosition_x() - o.getPosition_x()) * (this.getPosition_x() - o.getPosition_x()) +
+				(this.getPosition_y() - o.getPosition_y()) * (this.getPosition_y() - o.getPosition_y()));
 		return distance;
 	}
 
@@ -50,7 +52,7 @@ public abstract class ObjetLoft implements ObjetDessinable{
 		this.case_deplacement = case_deplacement;
 	}
 	
-	public abstract void manger(ObjetLoft o);
+	public abstract void manger();
 	public abstract void seDeplacer();
 	public abstract void affiche();
 }
