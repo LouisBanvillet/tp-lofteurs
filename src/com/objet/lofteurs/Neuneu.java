@@ -67,18 +67,20 @@ public class Neuneu extends ObjetLoft {
 					break;
 			}
 		} else {
-			System.out.println(this.getNom() + " se deplace vers " + a.getNom() + "[" + a.getPosition_x() + ", " + a.getPosition_y() + "]");
-			if(Math.abs(this.getPosition_x() - a.getPosition_x()) < Math.abs(this.getPosition_y() - a.getPosition_y())) {
-				if(this.getPosition_x() > a.getPosition_x()) {
-					this.seDeplacerGauche();
+			if(this.getPosition_x() != a.getPosition_x() || this.getPosition_y() != a.getPosition_y()){
+				
+				if(Math.abs(this.getPosition_y() - a.getPosition_y()) == 0 || Math.abs(this.getPosition_x() - a.getPosition_x()) < Math.abs(this.getPosition_y() - a.getPosition_y())) {
+					if(this.getPosition_x() > a.getPosition_x()) {
+						this.seDeplacerGauche();
+					} else {
+						this.seDeplacerDroite();
+					}
 				} else {
-					this.seDeplacerDroite();
-				}
-			} else {
-				if(this.getPosition_y() > a.getPosition_y()) {
-					this.seDeplacerHaut();
-				} else {
-					this.seDeplacerBas();
+					if(this.getPosition_y() > a.getPosition_y()) {
+						this.seDeplacerHaut();
+					} else {
+						this.seDeplacerBas();
+					}
 				}
 			}
 		}
