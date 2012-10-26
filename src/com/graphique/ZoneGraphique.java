@@ -36,6 +36,7 @@ public class ZoneGraphique extends JFrame {
 		
 		// ajout d'une taille par défaut
 		setSize(Saison1.tailleFenetre + 50, Saison1.tailleFenetre + 50);
+		this.setLocationRelativeTo(null);
 		
 		// création de la liste d'objets
 		liste = new LinkedList<ObjetDessinable>();
