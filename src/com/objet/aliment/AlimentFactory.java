@@ -10,7 +10,7 @@ public class AlimentFactory {
 
 		infos[0] = new InfoObjetLoft(Nourriture.class.getName(), 50, 0);
 		infos[1] = new InfoObjetLoft(Boisson.class.getName(), 30, 0);
-		infos[2] = new InfoObjetLoft(Alcool.class.getName(), 5, 1);
+		infos[2] = new InfoObjetLoft(Alcool.class.getName(), 5, 0);
 	}
 	
 	public static Aliment createAliment(String name){

@@ -36,10 +36,11 @@ public class Neuneu extends ObjetLoft {
 	
 	public void manger(ObjetLoft o) {
 		if(o != null) {
+			System.out.println(this.getNom() + " mange " + o.getNom() + "[" + o.getEnergie() + "]");
 			int e = this.getEnergie() + o.getEnergie();
 			this.setEnergie(Math.min(e, 100));
 			o.setEnergie(Math.max(0, e - this.getEnergie()));
-		}
+		} 
 	}
 
 	@Override
@@ -66,6 +67,7 @@ public class Neuneu extends ObjetLoft {
 					break;
 			}
 		} else {
+			System.out.println(this.getNom() + " se deplace vers " + a.getNom() + "[" + a.getPosition_x() + ", " + a.getPosition_y() + "]");
 			if(Math.abs(this.getPosition_x() - a.getPosition_x()) < Math.abs(this.getPosition_y() - a.getPosition_y())) {
 				if(this.getPosition_x() > a.getPosition_x()) {
 					this.seDeplacerGauche();
@@ -101,7 +103,7 @@ public class Neuneu extends ObjetLoft {
 
 	@Override
 	public void affiche() {
-		System.out.println(this.getNom() + "() [" + this.getPosition_x() + ", " + this.getPosition_y() + "]");
+		System.out.println(this.getNom() + "() [" + this.getPosition_x() + ", " + this.getPosition_y() + "][" + this.getEnergie() + "]");
 	}
 	
 	

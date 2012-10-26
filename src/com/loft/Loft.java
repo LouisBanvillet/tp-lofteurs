@@ -43,7 +43,7 @@ public class Loft implements ObjetDessinable{
 					a.setPosition_y(j);
 					numeroAliment++;
 				}
-				if(random>=5 && random<6){
+				if(random>=5 && random<6 && population.size() < 1){
 					Neuneu n = NeuneuFactory.createNeuneu("Neuneu" + numeroNeuneu, this);
 					population.add(n);
 					n.setPosition_x(i);
@@ -61,7 +61,7 @@ public class Loft implements ObjetDessinable{
 		while(population.size()>0 && tour<100){
 			System.out.println("tour " + tour);
 			for(Aliment n : listeAliment){
-				n.affiche();
+				//n.affiche();
 			}
 			for(Neuneu n : population){
 				n.seDeplacer();

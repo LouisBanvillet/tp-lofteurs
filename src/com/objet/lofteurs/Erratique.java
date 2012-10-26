@@ -1,10 +1,6 @@
 package com.objet.lofteurs;
 import java.awt.Color;
-
 import com.loft.Loft;
-import com.objet.ObjetLoft;
-
-
 
 public class Erratique extends Neuneu {
 

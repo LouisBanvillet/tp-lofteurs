@@ -17,7 +17,7 @@ public class NeuneuFactory {
 	}
 	
 	public static Neuneu createNeuneu(String name, Loft loft) {
-		int choix = 1; //(int)(Math.random() * infos.length);
+		int choix = 2; //(int)(Math.random() * infos.length);
 		
 		return infos[choix].getInstanceNeuneu(name, loft);
 	}
