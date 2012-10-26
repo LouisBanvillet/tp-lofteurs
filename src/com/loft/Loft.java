@@ -43,7 +43,7 @@ public class Loft implements ObjetDessinable{
 					a.setPosition_y(j);
 					numeroAliment++;
 				}
-				if(random>=5 && random<6 && population.size() < 100){
+				if(random>=5 && random<6 && population.size() < 3){
 					Neuneu n = NeuneuFactory.createNeuneu("Neuneu" + numeroNeuneu, this);
 					population.add(n);
 					n.setPosition_x(i);
@@ -105,21 +105,22 @@ public class Loft implements ObjetDessinable{
 		for(Neuneu n : population){
 			//si la distance est nulle, on ne considère pas ce Neuneu
 			//if(o.getDistance(population.get(i))!=0){
+			if(o.getNom() != n.getNom()) {
 				if(procheNeuneu==null) {
 					procheNeuneu=n;
 				} else if(o.getDistance(n)<o.getDistance(procheNeuneu)) {
 					procheNeuneu=n;
 				}
-			//}
+			}
 		}
 
 		return procheNeuneu;
 	}
 
-	public Neuneu getNeuneuCase(int x, int y) {
+	public Neuneu getNeuneuCase(String name, int x, int y) {
 		//puis la population d'objet		
 		for(Neuneu n : population){
-			if(n.getPosition_x() == x && n.getPosition_y() == y)
+			if(n.getPosition_x() == x && n.getPosition_y() == y && n.getNom() != name)
 				return n;
 		}
 
@@ -158,20 +159,23 @@ public class Loft implements ObjetDessinable{
 	//renvoie l'objet le plus proche de l'objet en paramètre
 	public ObjetLoft getProcheObjet(ObjetLoft o){
 		ObjetLoft procheObjet = null;
-
-		if(getProcheNeuneu(o)!=null){
+		
+		if(getProcheNeuneu(o) != null){
 			procheObjet=getProcheNeuneu(o);
 		}
 
-		if(getProcheAliment(o)!=null){
-			if(getProcheNeuneu(o)!=null){
-				if(o.getDistance(getProcheAliment(o))<o.getDistance(getProcheNeuneu(o))){
+		if(getProcheAliment(o) != null){
+			if(getProcheNeuneu(o) != null){
+				if(o.getDistance(getProcheAliment(o)) < o.getDistance(getProcheNeuneu(o))){
 					procheObjet=getProcheAliment(o);						
 				}
 			}
-			else{procheObjet=getProcheAliment(o);}
+			else {
+				procheObjet=getProcheAliment(o);
+			}
 		}			
 
+		System.out.println(procheObjet == null ? "null" : procheObjet.getNom());
 		return procheObjet;
 	}
 
@@ -205,12 +209,12 @@ public class Loft implements ObjetDessinable{
 	@Override
 	public void dessinerObjet(Graphics g) {
 		// TODO Auto-generated method stub
-		for (ObjetDessinable x : listeAliment) {
-			x.dessinerObjet(g);
+		for (int i = 0 ; i < listeAliment.size() ; i++) {
+			listeAliment.get(i).dessinerObjet(g);
 		}
 
-		for (ObjetDessinable x : population) {
-			x.dessinerObjet(g);
+		for (int i = 0 ; i < population.size() ; i++) {
+			population.get(i).dessinerObjet(g);
 		}
 	}
 

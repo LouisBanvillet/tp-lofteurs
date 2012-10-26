@@ -23,7 +23,7 @@ public class Cannibale extends Vorace {
 	public void manger() {
 		Aliment a = this.getLoft().getAlimentCase(this.getPosition_x(), this.getPosition_y());
 		if(a == null)
-			this.manger(this.getLoft().getNeuneuCase(this.getPosition_x(), this.getPosition_y()));
+			this.manger(this.getLoft().getNeuneuCase(this.getNom(), this.getPosition_x(), this.getPosition_y()));
 		else
 			this.manger(a);
 	}
