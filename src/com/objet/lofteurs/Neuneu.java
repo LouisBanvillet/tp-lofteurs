@@ -96,6 +96,7 @@ public class Neuneu extends ObjetLoft {
 		System.out.println(this.getNom() + "() [" + this.getPosition_x() + ", " + this.getPosition_y() + "]");
 	}
 	
+	
 	public void action() {
 		
 	}
