@@ -1,3 +1,6 @@
+package com.objet.lofteurs;
+import com.loft.Loft;
+
 
 public class Vorace extends Erratique {
 

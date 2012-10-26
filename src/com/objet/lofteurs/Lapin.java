@@ -1,3 +1,7 @@
+package com.objet.lofteurs;
+
+import com.loft.Loft;
+
 
 public class Lapin extends Neuneu {
 

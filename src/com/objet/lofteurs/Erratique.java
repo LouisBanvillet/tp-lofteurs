@@ -1,3 +1,8 @@
+package com.objet.lofteurs;
+import com.loft.Loft;
+import com.objet.ObjetLoft;
+
+
 
 public class Erratique extends Neuneu {
 

@@ -1,3 +1,4 @@
+package com.objet.aliment;
 
 public class Alcool extends Boisson {
 

@@ -1,10 +1,14 @@
+package com.objet.aliment;
 
-public class Aliment extends ObjetLoft {
+import com.objet.ObjetLoft;
 
-	public Aliment(String name) {
-		this.setNom(name);
+public class Boisson extends Aliment {
+
+	public Boisson(String name) {
+		super(name);
+		// TODO Auto-generated constructor stub
 	}
-	
+
 	@Override
 	public void manger(ObjetLoft o) {
 		// TODO Auto-generated method stub
@@ -22,5 +26,4 @@ public class Aliment extends ObjetLoft {
 		// TODO Auto-generated method stub
 		
 	}
-	
 }

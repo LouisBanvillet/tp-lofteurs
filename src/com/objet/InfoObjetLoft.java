@@ -1,3 +1,16 @@
+package com.objet;
+
+import com.loft.Loft;
+import com.objet.aliment.Alcool;
+import com.objet.aliment.Aliment;
+import com.objet.aliment.Boisson;
+import com.objet.aliment.Nourriture;
+import com.objet.lofteurs.Cannibale;
+import com.objet.lofteurs.Erratique;
+import com.objet.lofteurs.Lapin;
+import com.objet.lofteurs.Neuneu;
+import com.objet.lofteurs.Vorace;
+
 
 public class InfoObjetLoft {
 	private String classNom;

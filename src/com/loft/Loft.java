@@ -1,4 +1,15 @@
+package com.loft;
 import java.util.ArrayList;
+
+import com.objet.ObjetLoft;
+import com.objet.aliment.Aliment;
+import com.objet.aliment.AlimentFactory;
+import com.objet.lofteurs.Cannibale;
+import com.objet.lofteurs.Erratique;
+import com.objet.lofteurs.Lapin;
+import com.objet.lofteurs.Neuneu;
+import com.objet.lofteurs.NeuneuFactory;
+import com.objet.lofteurs.Vorace;
 
 
 public class Loft {

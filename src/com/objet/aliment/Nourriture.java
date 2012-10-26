@@ -1,7 +1,10 @@
+package com.objet.aliment;
 
-public class Boisson extends Aliment {
+import com.objet.ObjetLoft;
 
-	public Boisson(String name) {
+public class Nourriture extends Aliment {
+
+	public Nourriture(String name) {
 		super(name);
 		// TODO Auto-generated constructor stub
 	}

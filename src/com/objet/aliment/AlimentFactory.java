@@ -1,3 +1,6 @@
+package com.objet.aliment;
+import com.objet.InfoObjetLoft;
+
 
 public class AlimentFactory {
 	public static InfoObjetLoft[] infos;

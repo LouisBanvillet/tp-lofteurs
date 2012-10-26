@@ -1,3 +1,8 @@
+package com.objet.lofteurs;
+import com.loft.Loft;
+import com.objet.InfoObjetLoft;
+
+
 
 public class NeuneuFactory {
 	public static InfoObjetLoft[] infos;

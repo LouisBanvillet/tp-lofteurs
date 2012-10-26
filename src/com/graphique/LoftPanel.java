@@ -1,4 +1,4 @@
-package com.objet.lofteurs;
+package com.graphique;
 
 import java.awt.Graphics;
 import java.util.LinkedList;

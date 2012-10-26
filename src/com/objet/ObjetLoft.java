@@ -1,3 +1,4 @@
+package com.objet;
 
 public abstract class ObjetLoft {
 	protected int position_x;

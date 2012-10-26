@@ -1,3 +1,8 @@
+package com.objet.lofteurs;
+import com.loft.Loft;
+import com.objet.ObjetLoft;
+
+
 
 public class Neuneu extends ObjetLoft {
 	protected Loft loft;
@@ -75,11 +80,11 @@ public class Neuneu extends ObjetLoft {
 	}
 	
 	public void seDeplacerDroite() {
-		this.setPosition_y(Math.min(loft.w - 1, this.getPosition_y() + this.getCase_deplacement()));
+		this.setPosition_y(Math.min(loft.getW() - 1, this.getPosition_y() + this.getCase_deplacement()));
 	}
 	
 	public void seDeplacerBas() {
-		this.setPosition_y(Math.min(loft.h - 1, this.getPosition_y() + this.getCase_deplacement()));
+		this.setPosition_y(Math.min(loft.getH() - 1, this.getPosition_y() + this.getCase_deplacement()));
 	}
 	
 	public void seDeplacerGauche() {
